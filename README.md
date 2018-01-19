@@ -1,18 +1,20 @@
 # go-gorutinesfun
 Some gorutines examples
 
-###script inicial DB
+### script inicial DB
 - un elevador
-###variables configuracion
+
+### variables configuracion
 - floor_count 5
 - eleator_delay 2 *seconds
 - user_delay 10 *seconds
 
-##gorutines
-###1 users_requetest ()
+## gorutines
+### 1 users_requetest ()
 - donde_estoy: ramdon de 1 hasta floor_count
 - a_donde_voy: ramdon de 1 hasta floor_count diferente de donde_estoy
-###2 elevators_transaction
+
+###  elevators_transaction
 - validar el registro actual del elevador designado
 - valida la direccion y siguiente piso dependiendo del floor_count
 - actializa y remueve los registro en users_requetest dependiendo del destination_floor
@@ -21,26 +23,30 @@ Some gorutines examples
 - actualiza los registros en users_requetest
 - actualiza el registro en elevators_transaction
 
-##tablas
-###users_requetest
+## tablas
+
+### sers_requetest
 - request_id
 - person_id
 - destination_floor
 - request_timestamp
 - elevetor_id
-###elevators_transaction
+
+### elevators_transaction
 - elevator_id
 - load_size
 - direction
 - current_floor
-###configuration
+
+### configuration
 - conf_key
 - conf_value
-###elevator_keeper
+
+### elevator_keeper
 - elevator_id
 - max_size
 - status
 
-##dbs
+## dbs
 - mysql cc
 - mongo alex
