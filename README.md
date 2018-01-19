@@ -19,8 +19,9 @@ valida la direccion y siguiente piso dependiendo del floor_count
 actializa y remueve los registro en users_requetest dependiendo del destination_floor
 valida la cantidad de peticiones en users_requetest para el current_floor del elevador
 si el load_size permite toma load_size -  current de users_requetest en el orden acs 
-y actualiza los registros en users_requetest
-y actualiza el registro en elevators_transaction
+actualiza los registros en users_requetest
+actualiza el registro en elevators_transaction
+
 
 tablas
 
