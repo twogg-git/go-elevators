@@ -2,7 +2,7 @@
 Some gorutines examples
 
 ### script inicial DB
-- un elevador
+- un elevator
 
 ### variables configuracion
 - floor_count 5
@@ -23,9 +23,9 @@ Some gorutines examples
 - actualiza los registros en users_requetest
 - actualiza el registro en elevators_transaction
 
-## tablas
+## tables
 
-### sers_requetest
+### users_requetest
 - request_id
 - person_id
 - destination_floor
