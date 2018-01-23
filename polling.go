@@ -28,7 +28,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Hi there, I love %s!", r.URL.Path[1:])
 }
 
-func main() {
+func mainPolling() {
 	go startPolling1()
 	go startPolling2()
 
