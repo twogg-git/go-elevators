@@ -23,6 +23,9 @@ Some gorutines examples
 - actualiza los registros en users_requetest
 - actualiza el registro en elevators_transaction
 
+## MySQL Docker
+docker run --name mysql -e MYSQL_ROOT_PASSWORD=admin -p 3300:3306 -d mysql
+
 ## tables
 
 ### users_requetest

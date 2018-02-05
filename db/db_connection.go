@@ -8,9 +8,9 @@ import (
 )
 
 const (
-	DB_USER    = "rw"
-	DB_PASS    = "q06GGqF4zO77uD9I"
-	DB_NAME    = "bbop_shipments"
+	DB_USER    = "root"
+	DB_PASS    = "admin"
+	DB_NAME    = "gofun"
 	DB_CHARSET = "utf8"
 )
 

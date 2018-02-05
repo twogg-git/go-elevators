@@ -4,7 +4,6 @@ import (
 	"go-gorutinesfun/controllers"
 	"go-gorutinesfun/models"
 	"net/http"
-
 	"strconv"
 
 	"github.com/labstack/echo"
@@ -12,6 +11,8 @@ import (
 )
 
 /*
+https://echo.labstack.com/guide
+
 GET http://localhost:8081/employees
 POST http://localhost:8081/employee
 {
@@ -30,6 +31,7 @@ GET http://localhost:8081/employee/177
 */
 
 func main() {
+
 	e := echo.New()
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
