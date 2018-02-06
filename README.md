@@ -12,6 +12,7 @@ Which elevator you should choose?, How many persons can use that elevator?, Whic
 
 Here is an example of how you can fix that problem! ᕙ(⇀‸↼‶)ᕗ
 
+
 ## Tools to use:
 
 - Golang: Because of the great Goroutines.
@@ -20,7 +21,9 @@ Here is an example of how you can fix that problem! ᕙ(⇀‸↼‶)ᕗ
 - Docker: Easy to setup easy to run, plus each microservice is a container, then a service in k8s.
 - "K8s" Kubernetes. Because why not, also thanks to that container management and escalation.
 
+
 ## Database setup
+
 ### Docker Image
 ```ssh
 docker run --name mysql -e MYSQL_ROOT_PASSWORD=admin -p 3300:3306 -d mysql
@@ -40,8 +43,11 @@ configurations: Saves the delay time between, users requests and operations to b
 - elevator_delay 2 (In seconds)
 - request_delay 10 (In seconds)
 
+
 ## Microservices
+
 ### Requests
+
 It will create randomly a user request, based on floor_count, and request_delay. We are going to setup this as a microservices because eventually, we will escalate this service to more that one request at the time. This microservice will include a goroutine.
 
 Functions: 
