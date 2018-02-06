@@ -14,15 +14,11 @@ Here is an example of how you can fix that problem! ᕙ(⇀‸↼‶)ᕗ
 
 ## Tools to use:
 
-**Golang**, because of the great Goroutines.
-
-**Mysql** for the database management, we need those ids relationships.
-
-**Microservices** each elevator is a service, same goes for each user request.
-
-**Docker**, easy to setup easy to run, plus each microservice is a container, then a service in k8s.
-
-**K8s > Kubernetes** because why not, also thanks to that container management and escalation.
+- Golang: Because of the great Goroutines.
+- Mysql: For the database management, we need those ids relationships.
+- Microservices. Each elevator is a service, same goes for each user request.
+- Docker: Easy to setup easy to run, plus each microservice is a container, then a service in k8s.
+- "K8s" Kubernetes. Because why not, also thanks to that container management and escalation.
 
 ## Database setup
 ### Docker Image
@@ -44,7 +40,9 @@ configurations: Saves the delay time between, users requests and operations to b
 ## Microservices
 ### Requests
 It will create randomly a user request, based on floor_count, and request_delay. We are going to setup this as a microservices because eventually, we will escalate this service to more that one request at the time. This microservice will include a goroutine.
+
 Functions: 
+
 - sets the requests.initial_floor, >= 1
 - sets the requests.destination_floor, <= configurations.floor_count
 - validates that requests.initial_floor and requests.destination_floor are not equal
@@ -52,7 +50,9 @@ Functions:
 
 ### Elevators
 It will manage the operations of one elevator, where it should stop, where it needs to go, accept only as many passengers as his max load size is capable, and it erases all finish operations.
+
 Functions:
+
 **the elevator goes to the next floor**
 - creates a variable max_transactions = elevators.max_size by operations.elevator_id
 - gets operations.current_floor and operations.is_going_up by operations.elevator_id
