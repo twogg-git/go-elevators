@@ -36,6 +36,7 @@ configurations: Saves the delay time between, users requests and operations to b
 ### Microservices
 #### Requests
 It will create randomly a user request, based on floor_count, and request_delay. We are going to setup this as a microservices because eventually, we will escalate this service to more that one request at the time. This microservice will include a goroutine.
+
 Functions: 
 - sets the requests.initial_floor, >= 1
 - sets the requests.destination_floor, <= configurations.floor_count
@@ -44,6 +45,7 @@ Functions:
 
 #### Elevators
 It will manage the operations of one elevator, where it should stop, where it needs to go, accept only as many passengers as his max load size is capable, and it erases all finish operations.
+
 Functions:
 *--- the elevator goes to the next floor ---*
 - creates a variable max_transactions = elevators.max_size by operations.elevator_id
