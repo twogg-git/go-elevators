@@ -10,7 +10,7 @@ What happens when you use an elevator?
 
 Which elevator you should choose?, How many persons can use that elevator?, Which one is the next stop? Should the elevator go up or down?, How many users are waiting? etc...
 
-Here is an example of how you can fix that problem! ᕙ(⇀‸↼‶)ᕗ
+Here is an example of how you can solve that problem! ᕙ(⇀‸↼‶)ᕗ
 
 
 ## Tools to use:
