@@ -1,5 +1,6 @@
 
 # Elevators Concurrency Problem
+
 What happens when you use an elevator?
 - You have an X user with an initial floor and a destination floor.
 - An X quantity of elevators
@@ -11,45 +12,47 @@ Which elevator you should choose?, How many persons can use that elevator?, Whic
 
 Here is an example of how you can fix that problem! ᕙ(⇀‸↼‶)ᕗ
 
-### Tools to use:
+## Tools to use:
+
 **Golang**, because of the great Goroutines.
+
 **Mysql** for the database management, we need those ids relationships.
+
 **Microservices** each elevator is a service, same goes for each user request.
+
 **Docker**, easy to setup easy to run, plus each microservice is a container, then a service in k8s.
+
 **K8s > Kubernetes** because why not, also thanks to that container management and escalation.
 
-### Database setup
-#### Docker Image
+## Database setup
+### Docker Image
 ```ssh
 docker run --name mysql -e MYSQL_ROOT_PASSWORD=admin -p 3300:3306 -d mysql
 ```
 
-#### Tables
+### Tables
 elevators: Manage all the info for each elevator, like max size and status.
 requests: Here we will save each person request, including initial floor, and destination floor.
 operations: Process the transactions between the elevators and the requests, the main table!.
 configurations: Saves the delay time between, users requests and operations to be processed.
 
-#### Configurations initial values
+### Configurations initial values
 - floor_count 5
 - elevator_delay 2 (In seconds)
 - request_delay 10 (In seconds)
 
-### Microservices
-#### Requests
+## Microservices
+### Requests
 It will create randomly a user request, based on floor_count, and request_delay. We are going to setup this as a microservices because eventually, we will escalate this service to more that one request at the time. This microservice will include a goroutine.
-
 Functions: 
 - sets the requests.initial_floor, >= 1
 - sets the requests.destination_floor, <= configurations.floor_count
 - validates that requests.initial_floor and requests.destination_floor are not equal
 - requests.current_floor starts at the same floor as requests.initial_floor
 
-#### Elevators
+### Elevators
 It will manage the operations of one elevator, where it should stop, where it needs to go, accept only as many passengers as his max load size is capable, and it erases all finish operations.
-
 Functions:
-
 **the elevator goes to the next floor**
 - creates a variable max_transactions = elevators.max_size by operations.elevator_id
 - gets operations.current_floor and operations.is_going_up by operations.elevator_id
