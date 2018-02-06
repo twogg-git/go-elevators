@@ -52,8 +52,8 @@ It will create randomly a user request, based on floor_count, and request_delay.
 
 Functions: 
 
-- sets the requests.initial_floor, >= 1
-- sets the requests.destination_floor, <= configurations.floor_count
+- sets the requests.initial_floor >= 1
+- sets the requests.destination_floor <= configurations.floor_count
 - validates that requests.initial_floor and requests.destination_floor are not equal
 - requests.current_floor starts at the same floor as requests.initial_floor
 
@@ -74,8 +74,8 @@ Functions:
 
 **elevator validates if is it open for more passengers**
 - creates a variable current_requests = gets the count of current requests items by operations.elevator_id
-- if current_requests < max_transactions gets a current_requests items from requests by requests.elevator_id and requests.current_floor equals to next_floor and order by requests.created_at asc 
+- if current_requests < max_transactions gets a current_requests items from requests by requests.elevator_id equals to null and requests.current_floor equals to next_floor order by requests.created_at asc 
 - updates requests.elevator_id = operations.elevator_id where requests id are in previous result list
 
 **elevator closes**
-- updates operations.current_floor = next_floor 
+- updates operations.current_floor = next_floor with operations.elevator_id equals to current elevator_id
