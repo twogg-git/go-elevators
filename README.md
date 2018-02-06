@@ -29,7 +29,7 @@ Here is an example of how you can solve that problem! ᕙ(⇀‸↼‶)ᕗ
 docker run --name mysql -e MYSQL_ROOT_PASSWORD=admin -p 3300:3306 -d mysql
 ```
 
-### Tables
+#### Tables
 elevators: Manage all the info for each elevator, like max size and status.
 
 requests: Here we will save each person request, including initial floor, and destination floor.
@@ -38,7 +38,7 @@ operations: Process the transactions between the elevators and the requests, the
 
 configurations: Saves the delay time between, users requests and operations to be processed.
 
-### Configurations initial values
+#### Configurations initial values
 - floor_count 5
 - elevator_delay 2 (In seconds)
 - request_delay 10 (In seconds)
