@@ -12,7 +12,7 @@ Which elevator you should choose?, How many persons can use that elevator?, Whic
 Here is an example of how you can fix that problem! ᕙ(⇀‸↼‶)ᕗ
 
 ### Tools to use:
-**Golang**, because of the great Goroutines.<br>
+**Golang**, because of the great Goroutines.
 **Mysql** for the database management, we need those ids relationships.
 **Microservices** each elevator is a service, same goes for each user request.
 **Docker**, easy to setup easy to run, plus each microservice is a container, then a service in k8s.
@@ -50,20 +50,20 @@ It will manage the operations of one elevator, where it should stop, where it ne
 
 Functions:
 
-** the elevator goes to the next floor**
+**the elevator goes to the next floor**
 - creates a variable max_transactions = elevators.max_size by operations.elevator_id
 - gets operations.current_floor and operations.is_going_up by operations.elevator_id
 - creates a variable next_floor = operations.current_floor ++/-- depending on the direction (operations.is_going_up)  
 - get a max_transactions items from requests by requests.elevator_id order by created_at asc by operations.elevator_id
 - updates all requests.current_floor to next_floor with requests.elevator_id equals to operations.elevator_id
 
-** passengers get out form the elevator **
+**passengers get out form the elevator**
 - remove all requests items that have requests.destination_floor equal to requests.current_floor and requests.elevator_id equals to operations.elevator_id
 
-** elevator validates if is it open for more passengers **
+**elevator validates if is it open for more passengers**
 - creates a variable current_requests = gets the count of current requests items by operations.elevator_id
 - if current_requests < max_transactions gets a current_requests items from requests by requests.elevator_id and requests.current_floor equals to next_floor and order by requests.created_at asc 
 - updates requests.elevator_id = operations.elevator_id where requests id are in previous result list
 
-** elevator closes**
+**elevator closes**
 - updates operations.current_floor = next_floor 
