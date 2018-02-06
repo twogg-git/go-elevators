@@ -28,8 +28,11 @@ docker run --name mysql -e MYSQL_ROOT_PASSWORD=admin -p 3300:3306 -d mysql
 
 ### Tables
 elevators: Manage all the info for each elevator, like max size and status.
+
 requests: Here we will save each person request, including initial floor, and destination floor.
+
 operations: Process the transactions between the elevators and the requests, the main table!.
+
 configurations: Saves the delay time between, users requests and operations to be processed.
 
 ### Configurations initial values
