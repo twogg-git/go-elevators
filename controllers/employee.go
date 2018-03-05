@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"go-gorutinesfun/models"
+	"go-elevators/models"
 	"net/http"
 
 	"github.com/labstack/echo"

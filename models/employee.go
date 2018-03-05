@@ -1,10 +1,9 @@
 package models
 
 import (
-	"database/sql"
 	_ "database/sql"
 	"fmt"
-	"go-gorutinesfun/db"
+	"go-elevators/db"
 )
 
 type Employee struct {
@@ -16,8 +15,6 @@ type Employee struct {
 type Employees struct {
 	Employees []Employee `json:"employee"`
 }
-
-var con *sql.DB
 
 func GetEmployee() Employees {
 	con := db.CreateCon()

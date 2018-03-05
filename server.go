@@ -1,8 +1,8 @@
 package main
 
 import (
-	"go-gorutinesfun/controllers"
-	"go-gorutinesfun/models"
+	"go-elevators/controllers"
+	"go-elevators/models"
 	"net/http"
 	"strconv"
 
@@ -40,10 +40,14 @@ func main() {
 		AllowOrigins: []string{"*"},
 		AllowMethods: []string{echo.GET, echo.PUT, echo.POST, echo.DELETE},
 	}))
+	
+		println.("Starting...") 
 
 	e.GET("/", func(c echo.Context) error {
 		return c.JSON(http.StatusCreated, "Welcome mvc echo with mysql app using Golang")
 	})
+
+	e.GET("/elevators", controllers.GetElevators)
 
 	e.GET("/employees", controllers.GetEmployees)
 
@@ -69,6 +73,7 @@ func main() {
 		return c.JSON(http.StatusNoContent, controllers.DeleteEmployee(c, empId))
 	})
 
+	println.("Running at :8081")
 	e.Logger.Fatal(e.Start(":8081"))
 
 }

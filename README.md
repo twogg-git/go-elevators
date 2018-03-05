@@ -13,6 +13,8 @@ Which elevator you should choose?, How many persons can use that elevator?, Whic
 Here is an example of how you can solve that problem! ᕙ(⇀‸↼‶)ᕗ
 
 
+And this will produce a flow chart:
+
 ## Tools to use:
 
 - Golang: Because of the great Goroutines.
@@ -63,6 +65,7 @@ It will manage the operations of one elevator, where it should stop, where it ne
 Functions:
 
 **the elevator goes to the next floor**
+
 - creates a variable max_transactions = elevators.max_size by operations.elevator_id
 - gets operations.current_floor and operations.is_going_up by operations.elevator_id
 - creates a variable next_floor = operations.current_floor ++/-- depending on the direction (operations.is_going_up)  
@@ -70,12 +73,23 @@ Functions:
 - updates all requests.current_floor to next_floor with requests.elevator_id equals to operations.elevator_id
 
 **passengers get out form the elevator**
+
 - remove all requests items that have requests.destination_floor equal to requests.current_floor and requests.elevator_id equals to operations.elevator_id
 
 **elevator validates if is it open for more passengers**
+
 - creates a variable current_requests = gets the count of current requests items by operations.elevator_id
 - if current_requests < max_transactions gets a current_requests items from requests by requests.elevator_id equals to null and requests.current_floor equals to next_floor order by requests.created_at asc 
 - updates requests.elevator_id = operations.elevator_id where requests id are in previous result list
 
 **elevator closes**
 - updates operations.current_floor = next_floor with operations.elevator_id equals to current elevator_id
+
+## Minikube 
+Follow this doc to install minikube locally.
+https://github.com/kubernetes/minikube/releases
+
+```ssh
+minikube start
+```
+
