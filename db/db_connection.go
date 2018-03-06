@@ -8,6 +8,8 @@ import (
 )
 
 const (
+	DB_HOST    = "127.0.0.1"
+	DB_PORT    = "3300"
 	DB_USER    = "root"
 	DB_PASS    = "admin"
 	DB_NAME    = "go-elevators"
@@ -18,7 +20,8 @@ var con *sql.DB
 
 // Create mysql connection
 func CreateCon() *sql.DB {
-	db, err := sql.Open("mysql", DB_USER+":"+DB_PASS+"@/"+DB_NAME+"?charset="+DB_CHARSET)
+	//"mysql", "<username>:<pw>@tcp(<HOST>:<port>)/<dbname>")
+	db, err := sql.Open("mysql", DB_USER+":"+DB_PASS+"@tcp("+DB_HOST+":"+DB_PORT+")/"+DB_NAME+"?charset="+DB_CHARSET)
 	if err != nil {
 		fmt.Println(err.Error())
 	}

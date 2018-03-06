@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"go-elevators/controllers"
 	"go-elevators/models"
 	"net/http"
@@ -40,8 +41,8 @@ func main() {
 		AllowOrigins: []string{"*"},
 		AllowMethods: []string{echo.GET, echo.PUT, echo.POST, echo.DELETE},
 	}))
-	
-		println.("Starting...") 
+
+	fmt.Println("Starting...")
 
 	e.GET("/", func(c echo.Context) error {
 		return c.JSON(http.StatusCreated, "Welcome mvc echo with mysql app using Golang")
@@ -73,7 +74,7 @@ func main() {
 		return c.JSON(http.StatusNoContent, controllers.DeleteEmployee(c, empId))
 	})
 
-	println.("Running at :8081")
+	fmt.Println("Running at :8081")
 	e.Logger.Fatal(e.Start(":8081"))
 
 }

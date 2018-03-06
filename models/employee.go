@@ -19,7 +19,7 @@ type Employees struct {
 func GetEmployee() Employees {
 	con := db.CreateCon()
 	//db.CreateCon()
-	sqlStatement := "SELECT id,employee_name, employee_age, employee_salary FROM employee order by id"
+	sqlStatement := "SELECT id,employee_name, employee_age, employee_salary FROM employees order by id"
 
 	rows, err := con.Query(sqlStatement)
 	fmt.Println(rows)

@@ -4,7 +4,7 @@ import (
 	_ "database/sql"
 	"fmt"
 	"go-elevators/db"
-	"strconv"
+	//"strconv"
 )
 
 type Elevator struct {
@@ -47,7 +47,6 @@ func GetElevator() Elevators {
 
 func PostElevator(e Elevator) Elevator {
 	con := db.CreateCon()
-
 	stmt, err := con.Prepare("INSERT INTO elevators (name, max_size, status) VALUES (?, ?, ?)")
 	if err != nil {
 		fmt.Println(err)
@@ -62,8 +61,9 @@ func PostElevator(e Elevator) Elevator {
 	if err != nil {
 		fmt.Println(err)
 	}
+	fmt.Println("PostElevator", id)
 
-	e.ElevatorId = strconv.Atoi(id)
+	e.ElevatorId = 1
 	con.Close()
 
 	return e
